@@ -8,31 +8,44 @@
 </head>
 <body>
     
-
-    <!-- No.2 -->
+    <!-- Table 1 -->
+    SELECT *
+    FROM users;
+    
+    
+    <!-- Table 2 -->
+    SELECT *
+    FROM progress;
+    
+    
+    <!-- What are the Top 25 schools (.edu domains)? -->
     SELECT email_domain, COUNT(*) FROM users
     GROUP BY 1
     ORDER BY 2 DESC
     LIMIT 25;
     
+    
+    <!-- How many .edu learners are located in New York? -->
     SELECT COUNT(*)
     FROM users
     WHERE city = 'New York'
     AND email_domain LIKE '%.edu';
     
-    SELECT COUNT(mobile_app)
-    FROM users;
+    
+    <!-- How many of these Codecademy learners are using the mobile app? -->
+    SELECT mobile_app, COUNT(mobile_app) 
+    FROM users
+    GROUP BY 1;
     
     
-    <!-- No.3 -->
+    <!-- query for the sign up counts for each hour. -->
     SELECT sign_up_at,
        strftime('%H', sign_up_at)
     FROM users
     GROUP BY 2
     LIMIT 20;
     
-    
-    <!-- No.4 -->
+    <!-- Join the two tables using JOIN -->
     SELECT *
     FROM users
     JOIN progress
@@ -42,13 +55,5 @@
     <!-- Working on 4. Reviewing WITH Clause -->
     
     
-    
-
-
-
-
-
-
-
-</body>
+    </body>
 </html>
