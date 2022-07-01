@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <!-- No.2 -->
+    SELECT email_domain, COUNT(*) FROM users
+    GROUP BY 1
+    ORDER BY 2 DESC
+    LIMIT 25;
+    
+    SELECT COUNT(*)
+    FROM users
+    WHERE city = 'New York'
+    AND email_domain LIKE '%.edu';
+    
+    SELECT COUNT(mobile_app)
+    FROM users;
+    
+    
+    <!-- No.3 -->
+    SELECT sign_up_at,
+       strftime('%H', sign_up_at)
+    FROM users
+    GROUP BY 2
+    LIMIT 20;
+    
+    
+    <!-- No.4 -->
+    SELECT *
+    FROM users
+    JOIN progress
+    ON users.user_id = progress.user_id
+    GROUP BY 1;
+    
+    <!-- Working on 4. Reviewing WITH Clause -->
+    
+    
+    
+
+
+
+
+
+
+
+</body>
+</html>
